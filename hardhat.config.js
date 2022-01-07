@@ -15,6 +15,7 @@ require("./tasks/block-number")
 require("./tasks/price-consumer")
 require("./tasks/random-number-consumer")
 require("./tasks/api-consumer")
+require('solidity-coverage')
 require("./tasks/keepers")
 require("@appliedblockchain/chainlink-plugins-fund-link")
 
@@ -35,9 +36,9 @@ module.exports = {
     networks: {
         hardhat: {
             // // If you want to do some forking, uncomment this
-            // forking: {
-            //   url: MAINNET_RPC_URL
-            // }
+            forking: {
+               url: MAINNET_RPC_URL
+            }
         },
         localhost: {
         },
@@ -65,10 +66,10 @@ module.exports = {
         },
         mainnet: {
             url: MAINNET_RPC_URL,
-            // accounts: [PRIVATE_KEY],
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
+            accounts: [PRIVATE_KEY],
+            //accounts: {
+            //    mnemonic: MNEMONIC,
+            //},
             saveDeployments: true,
         },
         mumbai: {
